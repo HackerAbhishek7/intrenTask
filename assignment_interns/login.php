@@ -23,17 +23,22 @@
 		$password = $_POST['password'];
 
 		// Excute Sql Query
-		$sql = "INSERT INTO `login` . `login` ( `Email`, `Password`) VALUES ( '$email', '$password');";
+		$sql = "select * from `registration` . `registration`  where email = '$email' && password = '$password' ";
 
-		// echo $sql;
+		$result = mysqli_query($con, $sql);
 
-		if($con -> query($sql) == true){
-			// echo "Succesfully Excuted";
+		// Check For The Matched Rows
+		$num = mysqli_num_rows($result);
+
+		// If Its True
+		if($num == 1){
+			// $_SESSION['Email'] = $email;
+			header('location: home.php');
 		}
-		else{
-			echo "Error";
+		else {
+			echo "Email and Passwoed Doesnt match";
 		}
-
+		
 		$con -> close();
 
 	}

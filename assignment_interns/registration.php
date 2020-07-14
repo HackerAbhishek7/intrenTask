@@ -1,3 +1,4 @@
+<!-- Backend Starts Here -->
 <?php
 
 if(isset($_POST['firstname'])){
@@ -43,6 +44,7 @@ if(isset($_POST['firstname'])){
 
 ?>
 
+<!-- Front-End Starts Here -->
 <!DOCTYPE html>
 <html>
 <head>
